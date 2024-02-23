@@ -11,7 +11,6 @@ function shuffleCards(array) {
         const j = Math.floor(Math.random() * (i + 1));
         [shuffledCards[i], shuffledCards[j]] = [shuffledCards[j], shuffledCards[i]]
     }
-    console.log(array)
     return shuffledCards
 }
 
@@ -42,14 +41,26 @@ export default function Cards({ score, setScore, highScore, setHighScore }) {
     function handleClick(id) {
         //check if id is in clickedCards array
 
-        console.log(id)
+        if(clickedCards.includes(id)) {
+            //if yes, gameover
+            console.log('game over');
+            //reset score
+            setScore(0);
+            //reset clickedCards
+            setClickedCards([])
+        } else {
+            // if no, add it...
+            setClickedCards([...clickedCards, id]);
 
-        //if yes, gameover
+            // increase score
+            setScore(score + 1);
 
-        // if no, add it...
-        // increase score
-
-        // check highscore
+            // check highscore
+            if (score === highScore) {
+                setHighScore(highScore + 1)
+            }
+           
+        }
         // shuffle cards
         
         setCards(shuffleCards(cards))
