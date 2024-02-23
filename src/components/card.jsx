@@ -1,22 +1,15 @@
 import '../styles/card.css'
-import PropTypes from "prop-types"
 
+export default function Card({ data, handleClick }) {
 
-export default function Card({ data }) {
-
-    if (!data) return
-    else {
-
-    console.log(data)
-
-
+   
 
     return (
-        <div>
+        <div className='pokemonCard' onClick={() => handleClick(data.id)} >
             <img 
                 src={data.sprites.front_default}
             />
-            <p>Hello2</p>
+            <p>{data.name}</p>
         </div>
     )
-}}
+}
