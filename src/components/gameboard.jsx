@@ -12,6 +12,9 @@ export default function Gameboard() {
                     <h1 className="title">Memory Card Game</h1>
                     <h4 className="author">By Sam Campbell</h4>
                 </div>
+                <div className="instructions">
+                    <h3>Select each image only once. See how high of a score you can get!</h3>
+                </div>
                 <div className="scores">
                     <div className="currentScore">Current Score: {score} </div>
                     <div className="highScore">High Score: {highScore} </div>
